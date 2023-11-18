@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Hide&Show with Dark Mode Toggle</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f5f5f5;
+      }
+
+      form {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .dark-mode{
+        background-color: #212529;
+      }
+
+      input {
+        margin: 10px;
+        padding: 10px;
+        width: 250px;
+        border: 1px solid #ccc;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #007bff;
+      }
+
+      .toggle_button {
+        border: none;
+        padding: 4px 8px;
+        border-radius: 50px;
+        cursor: pointer;
+      }
+
+      .lightdark{
+        color: #212529;
+        margin-bottom: 2rem;
+        margin-left: 6.2rem;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div id="toggle-mode">
+      <button type="button" class="toggle_button lightdark" onclick="toggleMode()">
+        <i class="fa-solid fa-circle-half-stroke fa-xl " ></i><br><br>
+        Dark&Light Mode
+      </button>
+      <form id="form">
+        <input type="password" placeholder="password" id="password" required />
+        <button type="button" class="toggle_button" onclick="showHidePass()">
+          <i class="fa-solid fa-eye fa-lg " ></i>
+        </button>
+      </form>
+    </div>
+    <script>
+      function showHidePass() {
+        var passInput = document.getElementById("password");
+        if (passInput.type === "password") {
+          passInput.type = "text";
+        } else {
+          passInput.type = "password";
+        }
+      }
+
+      function toggleMode() {
+        var formElement = document.getElementById('form');
+        formElement.classList.toggle('dark-mode');
+      }
+    </script>
+  </body>
+</html>
